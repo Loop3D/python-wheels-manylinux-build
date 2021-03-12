@@ -36,6 +36,7 @@ for PY_VER in "${arrPY_VERSIONS[@]}"; do
 
     # Build wheels
     /opt/python/"${PY_VER}"/bin/pip wheel . ${PIP_WHEEL_ARGS} || { echo "Building wheels failed."; exit 1; }
+    cp _sklearn/surfepy/setuptools/*so dist/*.so
 done
 
 # Bundle external shared libraries into the wheels
